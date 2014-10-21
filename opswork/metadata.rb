@@ -1,0 +1,10 @@
+name              "opswork"
+maintainer        "lelivrescolaire.fr"
+maintainer_email  ""
+license           "MIT"
+description       "Set of recipes to manage opswork deployment"
+version           "1.0.0"
+
+depends "acl"
+depends "composer"
+depends "symfony"

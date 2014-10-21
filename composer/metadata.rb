@@ -1,0 +1,6 @@
+name              "composer"
+maintainer        "lelivrescolaire.fr"
+maintainer_email  ""
+license           "MIT"
+description       "Set of recipes to manage Composer dependencies"
+version           "1.0.0"
