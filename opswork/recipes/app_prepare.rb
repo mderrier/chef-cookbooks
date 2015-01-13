@@ -2,10 +2,16 @@ node[:deploy].each do |application, deploy|
 
   user "#{application}" do
     comment "Auto-generated user for #{application}"
-    supports :manage_home => true
     home "/home/#{application}"
     system true
     shell "/bin/bash"
+    action :create
+  end
+
+  directory "/home/#{application}" do
+    owner "#{application}"
+    group "#{application}"
+    mode 00755
     action :create
   end
 
