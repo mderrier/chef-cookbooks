@@ -5,7 +5,7 @@ node[:deploy].each do |application, deploy|
         if node.normal[:acl][:deploy][i][:exec][:path].nil?
           node.normal[:acl][:deploy][i][:exec][:path] = [];
         end
-  
+
         node.normal[:acl][:deploy][i][:exec][:path] << "#{deploy[:deploy_to]}/current"
       end
     end
