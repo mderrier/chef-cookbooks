@@ -62,15 +62,14 @@ node[:composer][:install].each do |infos|
   # Run commands
 
   unless infos[:exec].nil? || infos[:exec][:path].nil?
-    infos[:exec][:path].each do |curPath|
-      script "composer install @ #{curPath}" do
-        interpreter "bash"
-        user "#{infos[:exec][:user] || "root"}"
+    infos[:exec][:path].each do |curPath, vars|
+      execute "composer install @ #{curPath}" do
         cwd  "#{curPath}"
-      
-        code <<-EOH
-          #{executable} #{command} #{options.join(' ')}
-        EOH
+        user "#{infos[:exec][:user] || "root"}"
+        environment vars
+
+        command "#{executable} #{command} #{options.join(' ')}"
+        action :run
       end
     end
   end
