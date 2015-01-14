@@ -52,7 +52,7 @@ node[:deploy].each do |application, deploy|
     :exec => {
       :app => ["#{application}"]
     },
-    :path => ["."],
+    :path => [""],
     :options => "R",
     :user => [
       {
@@ -66,7 +66,7 @@ node[:deploy].each do |application, deploy|
     :exec => {
       :app => ["#{application}"]
     },
-    :path => ["."],
+    :path => [""],
     :options => "dR",
     :user => [
       {
