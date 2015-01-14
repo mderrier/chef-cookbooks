@@ -6,7 +6,7 @@ node[:deploy].each do |application, deploy|
           node.normal[:composer][:install][i][:exec][:path] = {};
         end
 
-        node.normal[:composer][:install][i][:exec][:path]["#{deploy[:deploy_to]}/current"] << deploy[:environment_variables]
+        node.normal[:composer][:install][i][:exec][:path]["#{deploy[:deploy_to]}/current"] = deploy[:environment_variables]
       end
     end
   end
