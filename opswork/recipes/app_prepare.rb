@@ -12,7 +12,7 @@ node[:deploy].each do |application, deploy|
     owner "#{application}"
     group "#{application}"
     mode 0755
-    action :create_if_missing
+    action :create
   end
 
   file "/home/#{application}/.app_env" do
