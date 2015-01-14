@@ -11,8 +11,8 @@ node[:deploy].each do |application, deploy|
   directory "/home/#{application}" do
     owner "#{application}"
     group "#{application}"
-    mode 00755
-    action :create
+    mode 0755
+    action :create_if_missing
   end
 
   file "/home/#{application}/.app_env" do
@@ -41,8 +41,8 @@ node[:deploy].each do |application, deploy|
     ruby_block "insert_line" do
       block do
         file = Chef::Util::FileEdit.new("/home/#{application}/.app_env")
-        file.search_file_delete("/^export #{key}=/")
-        file.insert_line_if_no_match(/^export #{key}=#{Regexp.escape(value)}$/, "export #{key}=#{value}")
+        file.search_file_delete_line(/^export #{key}=/)
+        file.insert_line_if_no_match(/^export #{key}=/, "export #{key}=#{value}")
         file.write_file
       end
     end
