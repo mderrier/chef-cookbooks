@@ -53,7 +53,7 @@ node[:acl][:deploy].each do |infos|
           interpreter "bash"
           user "#{infos[:exec][:user] || "root"}"
           cwd  "#{curPath}"
-        
+
           code <<-EOH
             mkdir -p #{infos[:path].join(' ')}
             setfacl #{options} #{rules.join(' ')} #{infos[:path].join(' ')}
