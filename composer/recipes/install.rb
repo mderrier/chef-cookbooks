@@ -66,6 +66,7 @@ node[:composer][:install].each do |infos|
       execute "composer install @ #{curPath}" do
         cwd  "#{curPath}"
         user "#{infos[:exec][:user] || "root"}"
+        group "#{infos[:exec][:group] || "root"}"
         environment vars
 
         command "#{executable} #{command} #{options.join(' ')}"
