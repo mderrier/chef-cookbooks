@@ -39,8 +39,8 @@ node[:composer][:setup].each do |infos|
     infos[:exec][:path].each do |curPath|
       script "#{scriptName} @ #{curPath}#{relativePath}" do
         interpreter "bash"
-        user "#{infos[:exec][:user] || "root"}"
-        group "#{infos[:exec][:group] || "root"}"
+        user "#{infos[:exec][:user]}"
+        group "#{infos[:exec][:group]}"
         cwd "#{curPath}"
       
         code <<-EOH
