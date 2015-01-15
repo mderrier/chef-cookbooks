@@ -1,1 +1,2 @@
-default[:symfony][:parameters]  = []
+default[:symfony][:commands]   = []
+default[:symfony][:parameters] = []
