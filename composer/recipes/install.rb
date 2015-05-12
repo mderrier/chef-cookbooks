@@ -3,7 +3,7 @@
 node[:composer][:install].each do |infos|
   options    = []
   command    = "install"
-  executable = "./composer.phar"
+  executable = "COMPOSER_PROCESS_TIMEOUT=4000 ./composer.phar"
 
   # Custom executable
 
