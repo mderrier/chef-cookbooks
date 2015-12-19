@@ -14,5 +14,3 @@ when "debian","ubuntu"
     only_if { ::File.exist?("/etc/php5/mods-available/#{module_name}.ini")}
   end
 end
-
-include_recipe "phpenv:php_mcrypt_enable"
