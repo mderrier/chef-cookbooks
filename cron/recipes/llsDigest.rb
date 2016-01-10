@@ -1,6 +1,5 @@
-cron "premiumWeeklyStudent" do
-  hour "3"
+cron "llsDigest" do
+  hour "5"
   minute "00"
-  command "cd /srv/www/oklm/current"
-  #command "cd /srv/www/oklm/current && php app/console oklm:premium:send-weekly-parent"
+  command "cd /srv/www/oklm/current && php app/console lls:stat"
 end
