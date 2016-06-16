@@ -1,0 +1,6 @@
+name              "phpenv"
+maintainer        "lelivrescolaire.fr"
+maintainer_email  ""
+license           "MIT"
+description       "Set of recipes to manage phpenv application setup"
+version           "1.0.0"
